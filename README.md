@@ -148,15 +148,7 @@ CI runs the same checks on pushes to `main` and on pull requests using `.github/
 
 ## Git and GitHub
 
-The repository includes `.gitignore`, Conventional Commit guidance in the `git-workflow` skill, and a GitHub Actions quality workflow. Git history and remotes are intentionally not created or modified by this foundation. When ready:
-
-```sh
-git init -b main
-git add .
-git commit -m "chore: initialize portfolio foundation"
-git remote add origin <your-repository-url>
-git push -u origin main
-```
+The repository is initialized on `main`, with `origin` configured and `main` tracking `origin/main`. It includes `.gitignore`, Conventional Commit guidance in the `git-workflow` skill, and a GitHub Actions quality workflow. CI has passed on the initial push.
 
 Do not commit `.env.local`, `dist/`, `node_modules/`, or Vercel project state.
 

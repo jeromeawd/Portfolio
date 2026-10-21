@@ -1,0 +1,112 @@
+/*
+ * Portfolio card layout.
+ * Card colors live in src/styles/globals.css as --portfolio-card-* variables.
+ */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "profile"
+    "about"
+    "projects"
+    "experience"
+    "socials"
+    "certifications"
+    "education";
+  gap: clamp(0.75rem, 1.25vw, 1rem);
+  width: min(100%, 76rem);
+  margin-inline: auto;
+}
+
+/* Shared elevation: bottom shadow and hover-lift for every card. */
+.portfolio-grid > [data-card] {
+  position: relative;
+  z-index: 0;
+  box-shadow: var(--portfolio-card-shadow);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+/* Only lift on devices with a real pointer so touch taps cannot stick. */
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-grid > [data-card]:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--portfolio-card-shadow-hover);
+    z-index: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-grid > [data-card] {
+    transition: none;
+  }
+
+  .portfolio-grid > [data-card]:hover {
+    transform: none;
+  }
+}
+
+.portfolio-grid > [data-card="profile"] {
+  grid-area: profile;
+  min-height: 20rem;
+  background-color: var(--portfolio-card-profile);
+}
+
+.portfolio-grid > [data-card="about"] {
+  grid-area: about;
+  background-color: var(--portfolio-card-about);
+}
+
+.portfolio-grid > [data-card="socials"] {
+  grid-area: socials;
+  background-color: var(--portfolio-card-socials);
+}
+
+.portfolio-grid > [data-card="experience"] {
+  grid-area: experience;
+  background-color: var(--portfolio-card-experience);
+}
+
+.portfolio-grid > [data-card="certifications"] {
+  grid-area: certifications;
+  background-color: var(--portfolio-card-certifications);
+}
+
+.portfolio-grid > [data-card="projects"] {
+  grid-area: projects;
+  background-color: var(--portfolio-card-projects);
+}
+
+.portfolio-grid > [data-card="education"] {
+  grid-area: education;
+  background-color: var(--portfolio-card-education);
+}
+
+/* Tablet: eight columns keep every card wide enough to read. */
+@media (min-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(11.5rem, auto));
+    grid-template-areas:
+      "profile profile profile about about about about about"
+      "profile profile profile socials socials experience experience experience"
+      "certifications certifications projects projects projects projects education education";
+  }
+
+  .portfolio-grid > [data-card="profile"] {
+    min-height: 0;
+  }
+}
+
+/* Desktop: profile spans both rows; About and Projects stay wide. */
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(15rem, auto));
+    grid-template-areas:
+      "profile profile profile about about about about about socials socials experience experience"
+      "profile profile profile certifications certifications projects projects projects projects projects education education";
+  }
+}

@@ -1,0 +1,47 @@
+/*
+ * Satoshi & General Sans — self-hosted variable fonts.
+ * Source: Fontshare (Indian Type Foundry) — https://www.fontshare.com
+ * License: ITF Free Font License (free for personal and commercial use).
+ *
+ * This file is intentionally NOT imported yet. To enable the fonts, add
+ *
+ *   @import "./fonts.css";
+ *
+ * at the top of globals.css (below the Tailwind imports), then use the
+ * "Satoshi" or "General Sans" font families.
+ */
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/satoshi/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/satoshi/Satoshi-VariableItalic.woff2")
+    format("woff2");
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("../assets/fonts/general-sans/GeneralSans-Variable.woff2")
+    format("woff2");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("../assets/fonts/general-sans/GeneralSans-VariableItalic.woff2")
+    format("woff2");
+  font-weight: 200 700;
+  font-style: italic;
+  font-display: swap;
+}

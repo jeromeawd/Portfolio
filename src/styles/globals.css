@@ -688,6 +688,19 @@
 :root {
   --radius: 0.625rem;
 
+  /* Portfolio card palette. Change these values to re-theme the card grid. */
+  --portfolio-card-profile: #dcebff;
+  --portfolio-card-about: #ddf5e5;
+  --portfolio-card-socials: #fff0c2;
+  --portfolio-card-experience: #f8dde8;
+  --portfolio-card-certifications: #e8deff;
+  --portfolio-card-projects: #d9f2f2;
+  --portfolio-card-education: #ffe3d1;
+
+  /* Portfolio card elevation. Shared by every card in the grid. */
+  --portfolio-card-shadow: 0 10px 14px -10px rgb(15 23 42 / 0.3);
+  --portfolio-card-shadow-hover: 0 18px 22px -14px rgb(15 23 42 / 0.34);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
