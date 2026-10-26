@@ -688,20 +688,16 @@
 :root {
   --radius: 0.625rem;
 
-  /* Portfolio card palette. Change these values to re-theme the card grid. */
-  --portfolio-card-profile: #dcebff;
-  --portfolio-card-about: #ddf5e5;
-  --portfolio-card-socials: #fff0c2;
-  --portfolio-card-experience: #f8dde8;
-  --portfolio-card-certifications: #e8deff;
-  --portfolio-card-projects: #d9f2f2;
-  --portfolio-card-education: #ffe3d1;
-
   /* Portfolio card elevation. Shared by every card in the grid. */
-  --portfolio-card-shadow: 0 10px 14px -10px rgb(15 23 42 / 0.3);
-  --portfolio-card-shadow-hover: 0 18px 22px -14px rgb(15 23 42 / 0.34);
-
-  --background: oklch(1 0 0);
+  --portfolio-card-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.45),
+    0 1px 2px rgb(15 23 42 / 0.035),
+    0 12px 24px -20px rgb(15 23 42 / 0.22);
+  --portfolio-card-shadow-hover:
+    inset 0 1px 0 rgb(255 255 255 / 0.55),
+    0 2px 4px rgb(15 23 42 / 0.04),
+    0 20px 34px -24px rgb(15 23 42 / 0.26);
+  --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -771,6 +767,15 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+
+  html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
   }
 
   body {
