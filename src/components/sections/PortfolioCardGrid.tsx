@@ -30,6 +30,12 @@ const techStack = [
 const projectPlaceholders = ['Project one', 'Project two']
 const experienceEntries = [
   {
+    id: 'tambay',
+    role: 'LF Internship Program',
+    company: 'Tambay',
+    dates: 'please na oh',
+  },
+  {
     id: 'enov8tive',
     role: 'HR Analytics and Data Intern',
     company: 'enov8tive',
@@ -69,15 +75,16 @@ export function PortfolioCardGrid() {
       <PortfolioCard tone="projects" title="Projects" icon={FolderKanban}>
         <div className="grid flex-1 gap-3 lg:grid-cols-2">
           {projectPlaceholders.map((project) => (
-            <div
+            <a
               key={project}
-              className="min-w-0 rounded-xl border border-black/5 bg-white/40 p-4"
+              href="#projects"
+              className="block min-w-0 rounded-xl border border-black/5 bg-white/40 p-4 transition-colors hover:border-slate-900/15 hover:bg-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
             >
               <p className="text-sm font-semibold text-slate-900">{project}</p>
               <p className="mt-1 text-xs leading-5 text-slate-600">
                 Add a short summary, your role, and the tools you used.
               </p>
-            </div>
+            </a>
           ))}
         </div>
       </PortfolioCard>
@@ -115,9 +122,6 @@ export function PortfolioCardGrid() {
             </p>
             <p className="text-xs text-slate-600">Issuer · Year</p>
           </div>
-          <p className="mt-auto pt-3 text-xs leading-5 text-slate-600">
-            Add your certifications here.
-          </p>
         </div>
       </PortfolioCard>
 

@@ -36,7 +36,7 @@ export function PortfolioCard({
     <article
       data-card={tone}
       className={cn(
-        'relative flex min-h-0 min-w-0 flex-col overflow-hidden rounded-lg border border-black/[0.12] text-slate-900',
+        'relative flex min-h-0 min-w-0 flex-col overflow-hidden rounded-lg border border-black/[0.18] text-slate-900',
         isMediaCard ? 'p-0' : 'p-4 sm:p-5 xl:p-6',
         className,
       )}

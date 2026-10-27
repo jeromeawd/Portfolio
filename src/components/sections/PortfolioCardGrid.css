@@ -22,7 +22,7 @@
 .portfolio-grid > [data-card] {
   position: relative;
   z-index: 0;
-  border-color: rgb(15 23 42 / 0.12);
+  border-color: rgb(15 23 42 / 0.18);
   background-color: #ffffff;
   box-shadow: var(--portfolio-card-shadow);
   transition:
