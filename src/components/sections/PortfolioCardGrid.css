@@ -13,8 +13,8 @@
     "experience"
     "certifications"
     "tech-stack";
-  gap: clamp(0.75rem, 1.2vw, 1rem);
-  width: min(100%, 76rem);
+  gap: clamp(0.625rem, 0.9vw, 0.75rem);
+  width: min(100%, 70rem);
   margin-inline: auto;
 }
 
@@ -33,7 +33,7 @@
 /* Only lift on devices with a real pointer so touch taps cannot stick. */
 @media (hover: hover) and (pointer: fine) {
   .portfolio-grid > [data-card]:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: var(--portfolio-card-shadow-hover);
     z-index: 1;
   }
@@ -51,7 +51,7 @@
 
 .portfolio-grid > [data-card="profile"] {
   grid-area: profile;
-  min-height: 20rem;
+  min-height: 11.5rem;
 }
 
 .portfolio-grid > [data-card="about"] {
@@ -78,7 +78,7 @@
 @media (min-width: 640px) {
   .portfolio-grid {
     grid-template-columns: repeat(8, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(11.5rem, auto));
+    grid-template-rows: repeat(3, minmax(10rem, auto));
     grid-template-areas:
       "profile profile profile about about about about about"
       "profile profile profile experience experience experience experience experience"
@@ -94,7 +94,7 @@
 @media (min-width: 1024px) {
   .portfolio-grid {
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(15rem, auto));
+    grid-template-rows: repeat(2, minmax(12.5rem, auto));
     grid-template-areas:
       "profile profile profile about about about about about experience experience experience experience"
       "profile profile profile certifications certifications projects projects projects projects tech-stack tech-stack tech-stack";

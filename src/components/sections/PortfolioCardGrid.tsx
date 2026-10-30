@@ -21,6 +21,7 @@ const techStack = [
   'HTML',
   'CSS',
   'JavaScript',
+  'Google Apps Script',
   'Vite',
   'React',
   'Git',
@@ -73,15 +74,17 @@ export function PortfolioCardGrid() {
       </PortfolioCard>
 
       <PortfolioCard tone="projects" title="Projects" icon={FolderKanban}>
-        <div className="grid flex-1 gap-3 lg:grid-cols-2">
+        <div className="grid flex-1 gap-2 lg:grid-cols-2">
           {projectPlaceholders.map((project) => (
             <a
               key={project}
               href="#projects"
-              className="block min-w-0 rounded-xl border border-black/5 bg-white/40 p-4 transition-colors hover:border-slate-900/15 hover:bg-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
+              className="block min-w-0 rounded-md border border-black/5 bg-white/40 p-3 transition-colors hover:border-slate-900/15 hover:bg-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
             >
-              <p className="text-sm font-semibold text-slate-900">{project}</p>
-              <p className="mt-1 text-xs leading-5 text-slate-600">
+              <p className="text-[13px] leading-5 font-semibold text-slate-900">
+                {project}
+              </p>
+              <p className="mt-0.5 text-xs leading-4 text-slate-600">
                 Add a short summary, your role, and the tools you used.
               </p>
             </a>
@@ -90,23 +93,23 @@ export function PortfolioCardGrid() {
       </PortfolioCard>
 
       <PortfolioCard tone="experience" title="Experience" icon={BriefcaseBusiness}>
-        <ol className="flex flex-1 flex-col gap-4">
+        <ol className="flex flex-1 flex-col gap-3">
           {experienceEntries.map((experience, index) => (
-            <li key={experience.id} className="relative pl-5">
+            <li key={experience.id} className="relative pl-4">
               <span
                 aria-hidden="true"
-                className="absolute left-0 top-1 size-2.5 rounded-full border-2 border-slate-900/20 bg-white"
+                className="absolute top-1 left-0 size-2 rounded-full border-2 border-slate-900/20 bg-white"
               />
               {index < experienceEntries.length - 1 && (
                 <span
                   aria-hidden="true"
-                  className="absolute left-[4px] top-3.5 h-[calc(100%+0.375rem)] w-0.5 bg-slate-900/20"
+                  className="absolute top-3 left-[3.5px] h-[calc(100%+0.25rem)] w-px bg-slate-900/20"
                 />
               )}
-              <p className="text-sm font-medium text-slate-900">
+              <p className="text-[13px] leading-[1.15rem] font-medium text-slate-900">
                 {experience.role}
               </p>
-              <p className="text-xs text-slate-600">
+              <p className="text-xs leading-4 text-slate-600">
                 {experience.company} · {experience.dates}
               </p>
             </li>
@@ -117,20 +120,20 @@ export function PortfolioCardGrid() {
       <PortfolioCard tone="certifications" title="Certifications" icon={Award}>
         <div className="flex flex-1 flex-col">
           <div>
-            <p className="text-sm font-medium text-slate-900">
+            <p className="text-[13px] leading-5 font-medium text-slate-900">
               Certification name
             </p>
-            <p className="text-xs text-slate-600">Issuer · Year</p>
+            <p className="text-xs leading-4 text-slate-600">Issuer · Year</p>
           </div>
         </div>
       </PortfolioCard>
 
       <PortfolioCard tone="tech-stack" title="Tech Stack" icon={Layers}>
-        <ul className="flex flex-1 flex-wrap content-center gap-2">
+        <ul className="flex flex-1 flex-wrap content-center gap-1.5">
           {techStack.map((technology) => (
             <li
               key={technology}
-              className="max-w-full break-words rounded-sm border border-slate-900/20 bg-transparent px-2.5 py-1 text-[11px] font-medium leading-4 text-slate-700"
+              className="max-w-full rounded-sm border border-slate-900/20 bg-transparent px-2 py-0.5 text-[11px] leading-4 font-medium break-words text-slate-700"
             >
               {technology}
             </li>
