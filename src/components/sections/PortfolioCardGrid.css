@@ -3,6 +3,24 @@
  * Every card shares the same white surface; layout areas are defined below.
  */
 
+/* Adjust the Profile card height here. */
+:root {
+  --profile-card-height: 350px;
+}
+
+/* Responsive profile heights. Change the same variable at each breakpoint. */
+@media (max-width: 1023px) {
+  :root {
+    --profile-card-height: 370px;
+  }
+}
+
+@media (max-width: 639px) {
+  :root {
+    --profile-card-height: 260px;
+  }
+}
+
 .portfolio-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -19,7 +37,8 @@
 }
 
 /* Shared elevation: soft depth and a restrained hover-lift for every card. */
-.portfolio-grid > [data-card] {
+.portfolio-grid > [data-card],
+.portfolio-grid > .profile-stack > [data-card] {
   position: relative;
   z-index: 0;
   border-color: rgb(15 23 42 / 0.18);
@@ -32,7 +51,8 @@
 
 /* Only lift on devices with a real pointer so touch taps cannot stick. */
 @media (hover: hover) and (pointer: fine) {
-  .portfolio-grid > [data-card]:hover {
+  .portfolio-grid > [data-card]:hover,
+  .portfolio-grid > .profile-stack > [data-card]:hover {
     transform: translateY(-2px);
     box-shadow: var(--portfolio-card-shadow-hover);
     z-index: 1;
@@ -40,18 +60,30 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-grid > [data-card] {
+  .portfolio-grid > [data-card],
+  .portfolio-grid > .profile-stack > [data-card] {
     transition: none;
   }
 
-  .portfolio-grid > [data-card]:hover {
+  .portfolio-grid > [data-card]:hover,
+  .portfolio-grid > .profile-stack > [data-card]:hover {
     transform: none;
   }
 }
 
-.portfolio-grid > [data-card="profile"] {
+.portfolio-grid > .profile-stack {
   grid-area: profile;
-  min-height: 11.5rem;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.50rem;
+  min-width: 0;
+}
+
+.portfolio-grid > .profile-stack > [data-card="profile"] {
+  width: 100%;
+  height: var(--profile-card-height);
+  min-height: 0;
 }
 
 .portfolio-grid > [data-card="about"] {
@@ -83,10 +115,6 @@
       "profile profile profile about about about about about"
       "profile profile profile experience experience experience experience experience"
       "certifications certifications projects projects projects projects tech-stack tech-stack";
-  }
-
-  .portfolio-grid > [data-card="profile"] {
-    min-height: 0;
   }
 }
 

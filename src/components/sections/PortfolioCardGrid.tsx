@@ -6,6 +6,7 @@ import {
   Layers,
 } from 'lucide-react'
 
+import profileImage from '@/assets/images/Transparent Graduation Portrait with Cap.png'
 import { PortfolioCard } from '@/components/shared/PortfolioCard'
 
 import './PortfolioCardGrid.css'
@@ -60,15 +61,39 @@ const experienceEntries = [
 export function PortfolioCardGrid() {
   return (
     <section aria-label="Portfolio overview" className="portfolio-grid">
-      <PortfolioCard tone="profile" title="Profile" blank />
+      <div className="profile-stack">
+        <PortfolioCard
+          tone="profile"
+          title="Profile"
+          media={
+            <img
+              src={profileImage}
+              alt="Profile portrait"
+              className="h-full w-full object-cover object-top"
+            />
+          }
+        />
+        <div className="profile-caption text-left">
+          <p className="text-[30px] leading-tight font-bold tracking-[-0.01em] text-slate-900">
+            Jerome Gualva
+          </p>
+          <p className="mt-1 text-[12px] leading-4 font-medium text-slate-600">
+            Aspiring Data Analyst
+          </p>
+        </div>
+      </div>
 
       <PortfolioCard tone="about" title="About" icon={Info}>
         <div className="flex flex-1 items-center">
-          <p className="max-w-prose text-pretty">
-            I'm a fourth-year BSIT student with a strong interest in data analytics and turning raw data into useful insights. 
-            I enjoy exploring data, creating dashboards, finding patterns, and learning tools like SQL, Excel, and Power BI. 
-            I also like working on projects that help me improve my technical and problem-solving skills. 
-            Outside of academics, I enjoy learning new technologies, exploring data visualization, and building projects that allow me to grow as a future Data Analyst.
+          <p className="max-w-prose indent-6 text-left text-pretty">
+            I'm a fourth-year BSIT student with a strong interest in data
+            analytics and turning raw data into useful insights. I enjoy
+            exploring data, creating dashboards, finding patterns, and learning
+            tools like SQL, Excel, and Power BI. I also like working on projects
+            that help me improve my technical and problem-solving skills.
+            Outside of academics, I enjoy learning new technologies, exploring
+            data visualization, and building projects that allow me to grow as a
+            future Data Analyst.
           </p>
         </div>
       </PortfolioCard>
@@ -129,7 +154,7 @@ export function PortfolioCardGrid() {
       </PortfolioCard>
 
       <PortfolioCard tone="tech-stack" title="Tech Stack" icon={Layers}>
-        <ul className="flex flex-1 flex-wrap content-center gap-1.5">
+        <ul className="flex flex-1 flex-wrap content-center gap-1">
           {techStack.map((technology) => (
             <li
               key={technology}
