@@ -1,0 +1,92 @@
+/*
+ * Initial page-load reveal.
+ * Cards settle into place from alternating directions with a short stagger;
+ * the profile caption follows the photo. Transform effects are removed after
+ * completion so hover states keep working normally.
+ */
+
+@keyframes portfolio-enter {
+  from {
+    opacity: 0;
+    transform: translate(var(--reveal-x, 0px), var(--reveal-y, 16px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes portfolio-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.portfolio-grid > [data-card],
+.portfolio-grid > .profile-stack > [data-card],
+.profile-caption {
+  --reveal-x: 0px;
+  --reveal-y: 16px;
+  animation: portfolio-enter 650ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.scroll-cue {
+  animation: portfolio-fade 500ms ease-out backwards;
+  animation-delay: var(--reveal-delay, 540ms);
+}
+
+.portfolio-grid > .profile-stack > [data-card="profile"] {
+  --reveal-delay: 60ms;
+  --reveal-x: -22px;
+  --reveal-y: 0px;
+}
+
+.profile-caption {
+  --reveal-delay: 130ms;
+  --reveal-y: 14px;
+}
+
+.portfolio-grid > [data-card="about"] {
+  --reveal-delay: 190ms;
+  --reveal-y: -18px;
+}
+
+.portfolio-grid > [data-card="experience"] {
+  --reveal-delay: 250ms;
+  --reveal-x: 22px;
+  --reveal-y: 0px;
+}
+
+.portfolio-grid > [data-card="certifications"] {
+  --reveal-delay: 310ms;
+  --reveal-x: -22px;
+  --reveal-y: 0px;
+}
+
+.portfolio-grid > [data-card="projects"] {
+  --reveal-delay: 370ms;
+  --reveal-y: 18px;
+}
+
+.portfolio-grid > [data-card="tech-stack"] {
+  --reveal-delay: 430ms;
+  --reveal-x: 22px;
+  --reveal-y: 0px;
+}
+
+.scroll-cue {
+  --reveal-delay: 540ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-grid > [data-card],
+  .portfolio-grid > .profile-stack > [data-card],
+  .profile-caption,
+  .scroll-cue {
+    animation: none;
+  }
+}

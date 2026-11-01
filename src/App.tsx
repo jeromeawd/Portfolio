@@ -18,7 +18,7 @@ function App() {
 
         <a
           href="#projects"
-          className="absolute bottom-4 left-1/2 flex -translate-x-1/2 flex-col items-center gap-0.5 py-1.5 text-[11px] font-medium tracking-[0.14em] text-slate-500 uppercase transition-colors hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-400 sm:bottom-5"
+          className="scroll-cue absolute bottom-4 left-1/2 flex -translate-x-1/2 flex-col items-center gap-0.5 py-1.5 text-[11px] font-medium tracking-[0.14em] text-slate-500 uppercase transition-colors hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-400 sm:bottom-5"
         >
           Scroll to projects
           <ChevronDown
