@@ -76,7 +76,7 @@
   align-self: start;
   display: flex;
   flex-direction: column;
-  gap: 1.50rem;
+  gap: 1rem;
   min-width: 0;
 }
 
