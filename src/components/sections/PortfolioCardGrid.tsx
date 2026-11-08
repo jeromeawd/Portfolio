@@ -2,15 +2,12 @@ import {
   Award,
   Briefcase,
   BriefcaseBusiness,
-  Check,
-  Copy,
+  FileText,
   FolderKanban,
   Info,
   Layers,
   Mail,
-  Phone,
 } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import type { SVGProps } from 'react'
 
 import profileImage from '@/assets/images/Transparent Graduation Portrait with Cap.png'
@@ -18,7 +15,7 @@ import { PortfolioCard } from '@/components/shared/PortfolioCard'
 
 import './PortfolioCardGrid.css'
 
-const phoneNumber = '+63 993 876 6187'
+const cvUrl = '/Resume.pdf'
 
 function GitHubIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -95,24 +92,6 @@ const experienceEntries = [
 ]
 
 export function PortfolioCardGrid() {
-  const [phoneCopied, setPhoneCopied] = useState(false)
-
-  useEffect(() => {
-    if (!phoneCopied) return
-
-    const timeout = window.setTimeout(() => setPhoneCopied(false), 2000)
-    return () => window.clearTimeout(timeout)
-  }, [phoneCopied])
-
-  async function copyPhoneNumber() {
-    try {
-      await navigator.clipboard.writeText(phoneNumber)
-      setPhoneCopied(true)
-    } catch {
-      // Clipboard access can be unavailable or blocked by the browser.
-    }
-  }
-
   return (
     <section aria-label="Portfolio overview" className="portfolio-grid">
       <div className="profile-stack">
@@ -136,7 +115,7 @@ export function PortfolioCardGrid() {
           </p>
           <ul
             aria-label="Contact details"
-            className="mt-3 flex max-w-60 flex-wrap items-center gap-x-2 gap-y-1.5 text-[11px] leading-4 font-medium"
+            className="mt-3 flex max-w-60 flex-wrap items-center gap-x-6 gap-y-2 text-[11px] leading-4 font-medium"
           >
             <li>
               <a
@@ -156,46 +135,21 @@ export function PortfolioCardGrid() {
               </a>
             </li>
             <li>
-              <span
-                className="inline-flex items-center gap-1.5 text-slate-600"
-                title={phoneNumber}
+              <a
+                href={cvUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                title="CV (PDF)"
+                className="group inline-flex items-center gap-1.5 rounded-sm text-slate-600 transition-colors hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
+                aria-label="Open Jerome Gualva's CV PDF in a new tab"
               >
-                <Phone
+                <FileText
                   aria-hidden="true"
-                  className="size-3.5 shrink-0 text-slate-500"
+                  className="size-3.5 shrink-0 text-slate-500 transition-colors group-hover:text-slate-900"
                   strokeWidth={1.8}
                 />
-                Phone
-                <span className="sr-only">: {phoneNumber}</span>
-                <button
-                  type="button"
-                  onClick={copyPhoneNumber}
-                  className="-my-1 inline-flex size-6 shrink-0 items-center justify-center rounded-sm text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400"
-                  aria-label={
-                    phoneCopied
-                      ? 'Phone number copied'
-                      : `Copy phone number ${phoneNumber}`
-                  }
-                  title={phoneCopied ? 'Copied!' : 'Copy phone number'}
-                >
-                  {phoneCopied ? (
-                    <Check
-                      aria-hidden="true"
-                      className="size-4"
-                      strokeWidth={2}
-                    />
-                  ) : (
-                    <Copy
-                      aria-hidden="true"
-                      className="size-4"
-                      strokeWidth={1.8}
-                    />
-                  )}
-                </button>
-                <span className="sr-only" role="status" aria-live="polite">
-                  {phoneCopied ? 'Phone number copied to clipboard' : ''}
-                </span>
-              </span>
+                CV
+              </a>
             </li>
             <li>
               <a
